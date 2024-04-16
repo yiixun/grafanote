@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+  grafana:
+    image: grafana/grafana:latest
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_PANELS_DISABLE_SANITIZE_HTML=true
+      - GF_SERVER_ROOT_URL=http://localhost/grafana/
+      - GF_SERVER_SERVE_FROM_SUB_PATH=true
+    volumes:
+      - ./grafana_data:/var/lib/grafana
+    networks:
+      - webnet
+
+  jupyter:
+    image: jupyter/base-notebook:latest
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTERLAB_BASE_URL=/py/
+    command: start-notebook.sh --NotebookApp.base_url=/py/ --NotebookApp.token='' --NotebookApp.password=''
+    volumes:
+      - ./jupyter_data:/home/jovyan/work
+    networks:
+      - webnet
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx_data/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - grafana
+      - jupyter
+    networks:
+      - webnet
+
+networks:
+  webnet:
