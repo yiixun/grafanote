@@ -1,5 +1,15 @@
 # grafanote
-A combination of grafana and notebook to build free style internal system
+A combination of grafana and notebook to build a light-code platform with popular stacks for engineers.
+
+popular stack: grafana, notebook, basic html/js, python, jquery.
+light-code: dashboard, pages, drag&drop, card design, simply copy&paste html/js to build the UI.
+
+# reason to choose
+Most "light-code" platforms still require engineers to build a customized site. 
+It makes life easier to get the job done with tools popular in engineer community.
+
+There is no new knowledge to learn, no specific designed platform to use. but all popular tools, and
+anyone could customize it in full control.
 
 
 # what can this do
@@ -74,4 +84,8 @@ click Refresh button to get todo lists.
 
 ```
 
+
+# Next
+In order to make things easier, commonly used components will be developed and put into example directory.
+Just copy and use.
 
