@@ -158,8 +158,8 @@ app.run(host='0.0.0.0', port=9000)
 
 ![Install pip](imgs/install-pip.jpg)
 
-1. Rerun the notebook.
-
+5. Rerun the notebook.
+![run notebook-2](imgs/run-notebook2.jpg)
 
 ## Debug the javascript
 There is error in previous js code. So when click the "Refresh" button, it doesn't work.
